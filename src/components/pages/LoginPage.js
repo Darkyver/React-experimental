@@ -14,7 +14,7 @@ const LoginPage = () => {
             formData.append('email', email)
             formData.append('password', password)
 
-            const response = await fetch('http://89.23.115.90:8080/api/v1/user/login', {
+            const response = await fetch('http://localhost:8080/api/v1/user/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
