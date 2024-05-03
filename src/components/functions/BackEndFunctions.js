@@ -1,6 +1,8 @@
+let baseUrl = '89.23.115.90'
+
 export async function fetchItems() {
     try {
-        const response = await fetch('http://localhost:8080/api/v1/items')
+        const response = await fetch(`http://${baseUrl}:8080/api/v1/items`)
         if (!response.ok) {
             throw new Error('Failed to fetch items')
         }
@@ -18,7 +20,7 @@ export async function handleAddToCart(item) {
         formData.append('itemId', item.id)
         formData.append('token', token)
 
-        const response = await fetch('http://localhost:8080/api/v1/shopping/addItem', {
+        const response = await fetch(`http://${baseUrl}:8080/api/v1/shopping/addItem`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
@@ -43,7 +45,7 @@ export async function logOut() {
         const formData = new URLSearchParams()
         formData.append('token', token)
 
-        const response = await fetch('http://localhost:8080/api/v1/user/logout', {
+        const response = await fetch(`http://${baseUrl}:8080/api/v1/user/logout`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
